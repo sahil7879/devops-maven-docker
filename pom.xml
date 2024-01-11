@@ -2,7 +2,7 @@
   xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
   <modelVersion>4.0.0</modelVersion>
   <groupId>com.techlanders</groupId>
-  <artifactId>rk</artifactId>
+  <artifactId>devops</artifactId>
   <packaging>war</packaging>
   <version>1.0-SNAPSHOT</version>
   <name>devops Maven Webapp</name>
@@ -36,6 +36,6 @@
         <version>3.3.2</version>
       </plugin>
     </plugins>
-    <finalName>rk</finalName>
+    <finalName>devops</finalName>
   </build>
 </project>
