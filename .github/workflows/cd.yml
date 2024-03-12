@@ -13,4 +13,4 @@ jobs:
       run: |
         sudo docker rm -f c1 
         sudo docker rmi -f ramann123/myimage:GAimage
-        sudo docker run -dt --name c1 -p 9000:8000 ramann123/myimage:GAimage
+        sudo docker run -dt --name c1 -p 9000:8080 ramann123/myimage:GAimage
