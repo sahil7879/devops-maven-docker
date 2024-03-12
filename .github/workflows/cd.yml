@@ -14,3 +14,5 @@ jobs:
         sudo docker rm -f c1 
         sudo docker rmi -f ramann123/myimage:GAimage
         sudo docker run -dt --name c1 -p 9000:8080 ramann123/myimage:GAimage
+        
+# now browse the publicIP:9000/devops on browser to see ur site in action
