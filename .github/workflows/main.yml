@@ -18,11 +18,11 @@ jobs:
          run: |
            mvn package
            ls -l
-       - name: Upload Artifact
-         uses: actions/upload-artifact@v4
-         with:
-           name: devops-war
-           path: target/devops.war
+       # - name: Upload Artifact
+       #   uses: actions/upload-artifact@v4
+       #   with:
+       #     name: devops-war
+       #     path: target/devops.war
 # u can download the artefact on ur custom runner using download artefact action ... or build docker image like below and deploy with that..
 
 # https://github.com/marketplace/actions/build-and-push-docker-images
