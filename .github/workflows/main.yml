@@ -1,7 +1,8 @@
 # Workflow to build the environment
 name: ci
 on: 
-  push
+#  push
+  workflow_dispatch:
 
 jobs:
   build:
