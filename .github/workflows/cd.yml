@@ -1,0 +1,15 @@
+name: cd
+on: 
+  workflow_run: ["ci"]
+  types:
+  - completed
+
+job:
+  deploy:
+  runs-on: raman-runner   # make sure to set up the custom runner ; and isntall docker on it : sudo apt install docker.io ; create test container -- sudo docker run -dt --name c1 httpd
+  steps:
+  - name: deployment using docker 
+    run: |
+      sudo docker rm -f c1 
+      sudo docker rmi -f ramann123/myimage:GAimage
+      sudo docker run -dt --name c1 -p 9000:8000 ramann123/myimage:GAimage
