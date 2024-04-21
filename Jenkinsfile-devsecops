@@ -2,7 +2,7 @@ pipeline {
     agent any
      tools {
         // already Defined the Maven tool to use from Jenkins as a plugin insted of directly installingon server
-        maven 'mvn'  # mvn is wt we named in tools configuration in jenkins
+        maven 'mvn'  // mvn is what we named in tools configuration in Jenkins
     }
     stages {
         stage('Sonar Scan Static Analsis ') {
