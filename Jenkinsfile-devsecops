@@ -4,6 +4,7 @@ pipeline {
         // already Defined the Maven tool to use from Jenkins as a plugin insted of directly installingon server
         maven 'mvn'  // mvn is what we named in tools configuration in Jenkins
     }
+
     stages {
         stage('Check sensitive git secrets exposure'){
           steps {
@@ -21,6 +22,7 @@ pipeline {
               }
             }
         }
+
         stage('Quality Gates') {
             steps {
               // Implement quality gates criteria timeout 
@@ -29,6 +31,18 @@ pipeline {
               }
             }  
         }
+
+        stage ('Source Composition Analysis') {   
+          // dependency checker for finding vulnerbailities in project dependencies
+          steps {
+            sh 'rm -rf owasp* || true'
+            sh 'wget "https://raw.githubusercontent.com/cehkunal/webapp/master/owasp-dependency-check.sh" '
+            sh 'chmod +x owasp-dependency-check.sh'
+            sh 'bash owasp-dependency-check.sh'
+            sh 'cat /var/lib/jenkins/OWASP-Dependency-Check/reports/dependency-check-report.xml'
+          }
+        }
+
         stage('Build') {
             steps {
                 // Build your project (e.g., Maven)
