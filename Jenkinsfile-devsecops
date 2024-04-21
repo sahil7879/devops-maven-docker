@@ -59,7 +59,7 @@ pipeline {
 
        stage('DAST-Analysis') {
           steps {
-            sh 'docker run -t ghcr.io/zaproxy/zaproxy:stable zap-baseline.py -t http://http://13.231.149.29:8081/devops/ || echo "Command 3 failed with exit code $?"'
+            sh 'docker run -t ghcr.io/zaproxy/zaproxy:stable zap-baseline.py -t http://13.231.149.29:8081/devops/ || echo "Command 3 failed with exit code $?"'
            }
           } 
     }
