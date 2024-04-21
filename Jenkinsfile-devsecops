@@ -5,6 +5,12 @@ pipeline {
         maven 'mvn'  // mvn is what we named in tools configuration in Jenkins
     }
     stages {
+        stage(check sensitive git secrets exposure){
+          steps {
+            sh "docker run --rm -v \"$PWD:/pwd\" trufflesecurity/trufflehog:latest github --repo ${env.GITHUB_REPO}"
+            }
+        }
+
         stage('Sonar Scan Static Analsis ') {
             steps {
               // add insallation name 
