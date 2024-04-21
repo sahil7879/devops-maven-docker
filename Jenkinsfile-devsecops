@@ -1,5 +1,9 @@
 pipeline {
     agent any
+     tools {
+        // already Defined the Maven tool to use from Jenkins as a plugin insted of directly installingon server
+        maven 'Maven'
+    }
     stages {
         stage('Sonar Scan Static Analsis ') {
             steps {
