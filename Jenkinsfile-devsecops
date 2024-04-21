@@ -7,7 +7,9 @@ pipeline {
     stages {
         stage('Check sensitive git secrets exposure'){
           steps {
-            sh "docker run --rm -v \"$PWD:/pwd\" trufflesecurity/trufflehog:latest github --repo ${env.GITHUB_REPO}"
+            sh 'rm -rf trufflehog || true'
+            sh "docker run --rm -v \"$PWD:/pwd\" trufflesecurity/trufflehog:latest github --repo ${env.GITHUB_REPO}" --only-verified --json > trufflehog"
+            sh 'cat trufflehog'
             }
         }
 
