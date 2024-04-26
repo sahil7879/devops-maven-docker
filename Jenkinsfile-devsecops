@@ -23,14 +23,14 @@ pipeline {
             }
         }
 
-        stage('Quality Gates') {
-            steps {
+        //stage('Quality Gates') {
+            //steps {
               // Implement quality gates criteria timeout 
               //timeout(time: 2, unit: 'MINUTES') {
                 //waitForQualityGate abortPipeline: true 
-              }
-            }  
-        }
+              //}
+            //}  
+        //}
 
         stage ('Source Composition Analysis') {   
           // this stage will take around 20 min on the first run
