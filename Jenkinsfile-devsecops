@@ -36,12 +36,14 @@ pipeline {
           // this stage will take around 20 min on the first run
           // dependency checker for finding vulnerbailities in project dependencies
           steps {
-            def workspaceDir = env.WORKSPACE
-            sh 'rm -rf owasp* || true'
-            sh 'wget "https://raw.githubusercontent.com/ramannkhanna2/devops-maven-docker/master/owasp-dependency-check.sh" '
-            sh 'chmod +x owasp-dependency-check.sh'
-            sh 'bash owasp-dependency-check.sh'
-            sh "cat $workspaceDir/odc-reports/dependency-check-report.xml"
+            script {
+              def workspaceDir = env.WORKSPACE
+              sh 'rm -rf owasp* || true'
+              sh 'wget "https://raw.githubusercontent.com/ramannkhanna2/devops-maven-docker/master/owasp-dependency-check.sh" '
+              sh 'chmod +x owasp-dependency-check.sh'
+              sh 'bash owasp-dependency-check.sh'
+              sh "cat $workspaceDir/odc-reports/dependency-check-report.xml"
+            }
           }
         }
 
